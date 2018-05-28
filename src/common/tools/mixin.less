@@ -1,0 +1,44 @@
+@baseUrl:'../../assets/';
+@dib:inline-block;
+.px2Rem(@name, @px) {
+  @{name}:@px / 100rem;
+}
+.wh(@px1,@px2) {
+  width:@px1 / 100rem;
+  height:@px2 / 100rem;
+}
+.px2Rem2(@name, @px, @px1) {
+  @{name}:@px / 100rem @px1 / 100rem;
+}
+.px2Rem4(@name,@px @px2, @px3, @px4) {
+  @{name}:@px / 100rem @px2 / 100rem @px3 / 100rem @px4 / 100rem;
+}
+.box(@name,@px, @px2, @px3, @px4,@color) {
+  @{name}:@px / 100rem @px2 / 100rem @px3 / 100rem @px4 / 100rem @color;
+};
+.border(@px, @color, @after:after,@border-bottom:border-bottom){
+  position: relative;
+  &:@{after} {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    content: "";
+    @{border-bottom}: (@px / 100rem) solid @color;
+  }
+}
+.border-none(@after:after) {
+  &:@{after} {
+    display: none;
+  }
+}
+.bd(@border:border, @px, @type, @color) {
+  @{border}:@px / 100rem @type @color;
+}
+.bgImg(@url) {
+  background-image: url("@{url}@2x.png");
+  @media screen and (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio){
+    background-image: url("@{url}@3x.png");
+  }
+}
