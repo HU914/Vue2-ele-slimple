@@ -46,6 +46,6 @@ export default new Router({
   ],
   linkActiveClass: 'active',
   linkExactActiveClass: 'active',
-  mode: 'history',
+  mode: 'hash',
   base: '/dist/'
 });

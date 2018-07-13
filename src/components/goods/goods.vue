@@ -2,7 +2,7 @@
   <div class="goods" ref='goods'>
     <div class="menu"  ref="menu">
       <ul>
-        <li v-for="(val,index) in goods" :key="index" class="menuItem" :class="{current:switchMenuIndex() === index}" @touchstart= 'initScrollData($event, scroll.menu)' @touchmove = "startScroll($event, scroll.menu)" @touchend= "entScroll(scroll.menu, index, scroll.foods)">
+        <li v-for="(val,index) in goods" :key="index" class="menuItem" :class="{current:switchMenuIndex() === index}" @click= "toggleNav(scroll.foods, index)" @touchstart= 'initScrollData($event, scroll.menu)' @touchmove = "startScroll($event, scroll.menu)" @touchend= "entScroll(scroll.menu, scroll.foods)">
           <p class="text">
             <span v-show="val.type > 0" class="icon" :class="classMap"></span>
             <span> {{val.name}}</span>
@@ -122,23 +122,6 @@ export default {
       var moveElm = re.el;
       var goodsH = this.$refs.goods;
       var ul = re.el.querySelector(re.parent + '>ul');
-      if (re.cls === '.menuItem') {
-        var scrollFoods = rel.el;
-        var itemIndex = index - 1;
-        this.calculateHeight(rel);
-        if (itemIndex < 0) {
-          scrollFoods.style.top = 0 + 'px';
-          scrollFoods.style.transition = 'all 0.2s';
-          this.scrollY = 0;
-          rel.recordY = 0;
-        } else {
-          this.scroll.menu.index = index;
-          this.scrollY = this.listH[index];
-          rel.recordY = this.listH[itemIndex];
-          scrollFoods.style.top = -this.listH[itemIndex] + 'px';
-          scrollFoods.style.transition = 'all 0.2s';
-        }
-      }
       if (re.scrollY < 0) {
         let carHeight = this.$refs.cart.acquireHeight();
         let YY = goodsH.clientHeight - carHeight - ul.scrollHeight;
@@ -178,6 +161,23 @@ export default {
          }
        }
       return this.scroll.menu.index;
+    },
+    toggleNav (rel, index) {
+      this.calculateHeight(rel);
+      var scrollFoods = rel.el;
+      var itemIndex = index - 1;
+      if (itemIndex < 0) {
+        scrollFoods.style.top = 0 + 'px';
+        scrollFoods.style.transition = 'all 0.2s';
+        this.scrollY = 0;
+        rel.recordY = 0;
+      } else {
+        this.scroll.menu.index = index;
+        this.scrollY = this.listH[index];
+        rel.recordY = this.listH[itemIndex];
+        scrollFoods.style.top = -this.listH[itemIndex] + 'px';
+        scrollFoods.style.transition = 'all 0.2s';
+      }
     },
     goodsDetail () {
       this.$refs.goodWrapper.showBlock();
