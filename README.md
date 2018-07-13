@@ -6,6 +6,7 @@
 FastClick（针对手机端延迟300ms的插件，消除延迟）、rem（个人书写的兼容手机移动端逻辑）
 
 下载文件后，请走两个步骤：
+
 1、npm install 
 2、node prod.server.js
 
