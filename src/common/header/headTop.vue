@@ -73,20 +73,7 @@
     },
     data () {
       return {
-        detailShow: false,
-        initY: 0,
-        scrollY: 0
-      };
-    },
-    mounted () {
-      this.scroll = {
-        goodItem: {
-          scrollY: 0,
-          recordY: 0,
-          listY: [],
-          el: this.$refs.c_c,
-          cls: '.c_c'
-        }
+        detailShow: false
       };
     },
     methods: {

@@ -31,15 +31,24 @@ export default new Router({
         {
           path: '/goods',
           name: 'goods',
-          component: goods
+          component: goods,
+          meta: {
+            keepAlive: true // 需要被缓存
+          }
         }, {
           path: '/seller',
           name: 'seller',
-          component: seller
+          component: seller,
+          meta: {
+            keepAlive: true // 需要被缓存
+          }
         }, {
           path: '/ratings',
           name: 'ratings',
-          component: ratings
+          component: ratings,
+          meta: {
+            keepAlive: true // 需要被缓存
+          }
         }
       ]
     }

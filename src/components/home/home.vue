@@ -10,7 +10,9 @@
     </div>
     <div class="content">
       <transition  enter-active-class="animated zoomInDown" leave-active-class="animated bounceOutRight" >
-        <router-view :seller="seller"></router-view>
+        <keep-alive>
+          <router-view :seller="seller" v-if="$route.meta.keepAlive"></router-view>
+        </keep-alive>
       </transition>
     </div>
   </div>

@@ -193,7 +193,6 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      // overflow: hidden;
       .overview {
         .px2Rem2(padding, 36,0);
         .overviewLeft {
