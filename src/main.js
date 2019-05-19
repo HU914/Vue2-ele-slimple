@@ -6,6 +6,7 @@ import FastClick from 'fastclick';
 import router from './router/router';
 import './common/tools/rem';
 import axios from 'axios';
+import './mockJs/mock';
 
 Vue.config.productionTip = false;
 Vue.prototype.axios = axios;

@@ -63,9 +63,9 @@ export default {
   },
   created () {
     this.axios
-    .get('goods')
+    .get('api/goods')
     .then(res => {
-      this.goods = res.data.data;
+      this.goods = res.data;
     });
     this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
   },

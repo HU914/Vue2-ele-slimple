@@ -29,9 +29,9 @@
     },
     created () {
       this.axios
-        .get('seller')
+        .get('api/seller')
         .then(res => {
-         this.seller = res.data.data;
+         this.seller = res.data;
          console.log(this.seller);
         });
     },

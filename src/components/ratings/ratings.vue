@@ -99,9 +99,9 @@
     },
     created () {
       this.axios
-      .get('ratings')
+      .get('api/ratings')
       .then(re => {
-        this.ratings = re.data.data;
+        this.ratings = re.data;
       });
     },
     props: {
