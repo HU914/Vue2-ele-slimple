@@ -23,11 +23,8 @@ export default new Router({
     {
       path: '/',
       component: home,
+      redirect: '/goods',
       children: [
-        {
-          path: '/',
-          component: goods
-        },
         {
           path: '/goods',
           name: 'goods',
